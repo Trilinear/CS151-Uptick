@@ -4,11 +4,11 @@ Users
 ---
 | **Class** | **Use Case** |
 | :---: | :---: |
-| <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/Class%20Diagram.PNG"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/Class%20Diagram.PNG"></a> | <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/Use%20Case%20Diagram.PNG"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/Use%20Case%20Diagram.PNG"></a> |
+| <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/Class%20Diagram.png"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/Class%20Diagram.png"></a> | <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/Use%20Case%20Diagram.png"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/Use%20Case%20Diagram.png"></a> |
 
 | **State** | **Sequence** |
 | :---: | :---: |
-| <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/State%20Diagram.PNG"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/State%20Diagram.PNG"></a> | <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/Sequence%20Diagram.PNG"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/Sequence%20Diagram.PNG"></a> |
+| <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/State%20Diagram.png"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/State%20Diagram.png"></a> | <a href="https://github.com/Trilinear/CS151-Uptick/blob/main/diagrams/users/Sequence%20Diagram.png"><img src="https://raw.githubusercontent.com/Trilinear/CS151-Uptick/main/diagrams/users/Sequence%20Diagram.png"></a> |
 
 Posts
 ---
