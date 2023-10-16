@@ -1,3 +1,4 @@
+package Post;
 import java.util.Date;
 
 
@@ -7,10 +8,10 @@ public class Post {
     private final String body;
     private final Date date;
     private final User user;
-    private final int id;
+    private final long id;
 
     //Create
-    public Post(String title, String body, Date date, User user, int id) {
+    public Post(String title, String body, Date date, User user, long id) {
         this.title = title;
         this.body = body;
         this.date = date;
@@ -35,7 +36,7 @@ public class Post {
         return user;
     }
 
-    public int getID() {
+    public long getID() {
         return id;
     }
 
@@ -57,7 +58,7 @@ public class Post {
     }
 
     //Delete
-    public void deletePost(String title, String body, Date date, User user, int id) {
+    public void deletePost(String title, String body, Date date, User user, long id) {
         this.title = null;
         this.body = null;
         this.date = null;
