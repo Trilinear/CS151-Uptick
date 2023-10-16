@@ -1,14 +1,14 @@
-package Post;
+package CRUD;
 import java.util.Date;
 
 
 
 public class Post {
-    private final String title;
-    private final String body;
-    private final Date date;
-    private final User user;
-    private final long id;
+    private String title;
+    private String body;
+    private Date date;
+    private User user;
+    private long id;
 
     //Create
     public Post(String title, String body, Date date, User user, long id) {
@@ -32,7 +32,7 @@ public class Post {
         return date;
     }
 
-    public Date getUser() {
+    public User getUser() {
         return user;
     }
 
@@ -41,9 +41,9 @@ public class Post {
     }
 
     //Edit
-    public void editTitle(String title, User user) {
+    public void editTitle(String newTitle, User user) {
         if (this.user == user) {
-            this.title = title;
+            this.title = newTitle;
         } else {
             System.out.println("You are not the owner of this post. Edit to title denied.");
         }
