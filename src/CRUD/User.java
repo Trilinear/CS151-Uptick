@@ -2,20 +2,14 @@ package CRUD;
 import java.util.List;
 
 public class User {
-    private String username, password;
-    private long userID;
-    private List<Post> posts;
-    private List<Comment> comments;
+    String username, password;
+    List<Post> posts;
+    List<Comment> comments;
 
 
     public User(String username, String password, long userID) {
         this.username = username;
         this.password = password;
-        this.userID = userID;
-    }
-
-    public long getUserID() {
-        return userID;
     }
 
     public String getUsername() {
@@ -52,6 +46,5 @@ public class User {
     public void deleteUser(String username, String password, long userID) {
         this.username = null;
         this.password = null;
-        this.userID = -1;
     }
 }
