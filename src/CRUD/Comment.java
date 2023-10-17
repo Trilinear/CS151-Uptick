@@ -1,7 +1,8 @@
 package CRUD;
+import java.util.Comparator;
 import java.util.Date;
 
-public class Comment {
+public class Comment implements Comparator<Comment> {
     private long commentID;
     private User author;
     private Post post;
@@ -55,5 +56,10 @@ public class Comment {
             this.creationDate = null;
             this.editDate = null;
         }
+    }
+
+    @Override
+    public int compare(Comment c1, Comment c2){
+        return c1.getCreationDate().compareTo(c2.getCreationDate());
     }
 }
