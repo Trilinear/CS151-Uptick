@@ -1,20 +1,18 @@
 package CRUD;
 import java.util.Date;
 
-
-
 public class Post {
-    private String title;
-    private String body;
-    private Date date;
+    private String title, body;
+    private Date creationDate, editDate;
     private User user;
     private long id;
 
     //Create
-    public Post(String title, String body, Date date, User user, long id) {
+    public Post(String title, String body, User user, long id) {
         this.title = title;
         this.body = body;
-        this.date = date;
+        this.creationDate = new Date();
+        this.editDate = creationDate;
         this.user = user;
         this.id = id;
     }
@@ -28,9 +26,11 @@ public class Post {
         return body;
     }
 
-     public Date getDate() {
-        return date;
+    public Date getCreationDate() {
+        return creationDate;
     }
+
+    public Date getEditDate() { return editDate; }
 
     public User getUser() {
         return user;
@@ -44,6 +44,7 @@ public class Post {
     public void editTitle(String newTitle, User user) {
         if (this.user == user) {
             this.title = newTitle;
+            this.editDate = new Date();
         } else {
             System.out.println("You are not the owner of this post. Edit to title denied.");
         }
@@ -52,6 +53,7 @@ public class Post {
     public void editBody(String body, User user) {
         if (this.user == user) {
             this.body = body;
+            this.editDate = new Date();
         } else {
             System.out.println("You are not the owner of this post. Edit to body denied.");
         }
@@ -61,7 +63,8 @@ public class Post {
     public void deletePost(String title, String body, Date date, User user, long id) {
         this.title = null;
         this.body = null;
-        this.date = null;
+        this.creationDate = null;
+        this.editDate = null;
         this.user = null;
         this.id = -1;
     }

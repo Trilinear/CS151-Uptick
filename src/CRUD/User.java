@@ -1,10 +1,8 @@
 package CRUD;
 import java.util.List;
 
-
 public class User {
-    private String username;
-    private String password;
+    private String username, password;
     private long userID;
     private List<Post> posts;
     private List<Comment> comments;

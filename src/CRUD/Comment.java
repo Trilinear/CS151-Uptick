@@ -1,5 +1,4 @@
 package CRUD;
-
 import java.util.Date;
 
 public class Comment {
@@ -7,14 +6,15 @@ public class Comment {
     private User author;
     private Post post;
     private String text;
-    private Date creationDate;
+    private Date creationDate, editDate;
 
     public Comment(User author, Post post, String text, long commentID, Date creationDate) {
         this.author = author;
         this.post = post;
         this.text = text;
         this.commentID = commentID;
-        this.creationDate = creationDate;
+        this.creationDate = new Date();
+        this.editDate = creationDate;
     }
 
     public long getCommentID() {
@@ -33,13 +33,16 @@ public class Comment {
         return text;
     }
 
-    public Date getDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
+
+    public Date getEditDate() { return editDate; }
 
     public void editText(String newText, User user) {
         if (this.author == user) {
             this.text = newText;
+            this.editDate = new Date();
         } else {
             System.out.println("This user is not the owner of the comment. Changes prevented.");
         }
@@ -50,6 +53,7 @@ public class Comment {
             this.text = null;
             this.commentID = -1;
             this.creationDate = null;
+            this.editDate = null;
         }
     }
 }
