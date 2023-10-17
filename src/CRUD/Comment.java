@@ -1,55 +1,41 @@
 package CRUD;
-
 import java.util.Date;
 
-public class Comment {
-    private long commentID;
-    private User author;
-    private Post post;
-    private String text;
-    private Date creationDate;
+public class Comment extends Post{
+    Post parent;
 
-    public Comment(User author, Post post, String text, long commentID, Date creationDate) {
-        this.author = author;
-        this.post = post;
-        this.text = text;
-        this.commentID = commentID;
-        this.creationDate = creationDate;
-    }
-
-    public long getCommentID() {
-        return commentID;
+    public Comment(String text, User user, Post parent) {
+        super(null, text, user);
+        this.parent = parent;
     }
 
     public User getUser() {
-        return author;
+        return user;
     }
 
     public Post getPost() {
-        return post;
+        return parent;
     }
 
-    public String getText() {
-        return text;
+    public String getBody() {
+        return body;
     }
 
-    public Date getDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void editText(String newText, User user) {
-        if (this.author == user) {
-            this.text = newText;
-        } else {
-            System.out.println("This user is not the owner of the comment. Changes prevented.");
-        }
+    public Date getEditDate() { return editDate; }
+
+    public void editText(String newText) {
+        this.body = newText;
+        this.editDate = new Date();
     }
     
-    public void deleteComment(User user, Post post, String text, long commentID, Date creationDate) {
-        if (this.author == user && this.post == post) {
-            this.text = null;
-            this.commentID = -1;
-            this.creationDate = null;
-        }
+    public void deleteComment() {
+        this.body = null;
+        this.creationDate = null;
+        this.editDate = null;
+        this.parent = null;
     }
 }

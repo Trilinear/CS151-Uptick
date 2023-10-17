@@ -1,22 +1,19 @@
 package CRUD;
+import java.util.Comparator;
 import java.util.Date;
 
-
-
-public class Post {
-    private String title;
-    private String body;
-    private Date date;
-    private User user;
-    private long id;
+public class Post implements Comparator<Post> {
+    String title, body;
+    Date creationDate, editDate;
+    User user;
 
     //Create
-    public Post(String title, String body, Date date, User user, long id) {
+    public Post(String title, String body, User user) {
         this.title = title;
         this.body = body;
-        this.date = date;
+        this.creationDate = new Date();
+        this.editDate = creationDate;
         this.user = user;
-        this.id = id;
     }
 
     //Read
@@ -28,43 +25,38 @@ public class Post {
         return body;
     }
 
-     public Date getDate() {
-        return date;
+    public Date getCreationDate() {
+        return creationDate;
     }
+
+    public Date getEditDate() { return editDate; }
 
     public User getUser() {
         return user;
     }
 
-    public long getID() {
-        return id;
-    }
-
     //Edit
     public void editTitle(String newTitle, User user) {
-        if (this.user == user) {
-            this.title = newTitle;
-        } else {
-            System.out.println("You are not the owner of this post. Edit to title denied.");
-        }
+        this.title = newTitle;
+        this.editDate = new Date();
     }
 
     public void editBody(String body, User user) {
-        if (this.user == user) {
-            this.body = body;
-        } else {
-            System.out.println("You are not the owner of this post. Edit to body denied.");
-        }
+        this.body = body;
+        this.editDate = new Date();
     }
 
     //Delete
-    public void deletePost(String title, String body, Date date, User user, long id) {
+    public void deletePost() {
         this.title = null;
         this.body = null;
-        this.date = null;
+        this.creationDate = null;
+        this.editDate = null;
         this.user = null;
-        this.id = -1;
     }
 
-
+    @Override
+    public int compare(Post p1, Post p2){
+        return p1.getCreationDate().compareTo(p2.getCreationDate());
+    }
 }
