@@ -46,15 +46,6 @@ public class Post implements Comparator<Post> {
         this.editDate = new Date();
     }
 
-    //Delete
-    public void deletePost() {
-        this.title = null;
-        this.body = null;
-        this.creationDate = null;
-        this.editDate = null;
-        this.user = null;
-    }
-
     @Override
     public int compare(Post p1, Post p2){
         return p1.getCreationDate().compareTo(p2.getCreationDate());

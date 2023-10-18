@@ -43,8 +43,4 @@ public class User {
             System.out.println("Wrong password. Change to password has been denied.");
         }
     }
-    public void deleteUser(String username, String password, long userID) {
-        this.username = null;
-        this.password = null;
-    }
 }
