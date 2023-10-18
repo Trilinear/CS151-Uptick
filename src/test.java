@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import CRUD.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -23,6 +24,7 @@ public class Test {
         userManager.addObject(user2);
         postManager.addObject(post1);
 
+        
         post1.editTitle("New Title", user1);
         comment1.editText("New Comment Body");
         System.out.println("Post 1 New Title: " + post1.getTitle());
