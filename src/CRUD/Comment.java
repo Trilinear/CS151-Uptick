@@ -31,11 +31,4 @@ public class Comment extends Post{
         this.body = newText;
         this.editDate = new Date();
     }
-    
-    public void deleteComment() {
-        this.body = null;
-        this.creationDate = null;
-        this.editDate = null;
-        this.parent = null;
-    }
 }
