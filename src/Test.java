@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Scanner;
 import CRUD.*;
 
@@ -45,7 +46,7 @@ public class Test {
         System.out.println("Users count after deletion: " + userManager.userList.size());
         System.out.println("Posts count after deletion: " + postManager.postList.size());
             
-        postManager.postList.sort();
+        Collections.sort(postManager.postList);
 
         for (Post post : postManager.postList) {
             System.out.println("Post Title: " + post.getTitle());
