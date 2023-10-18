@@ -45,11 +45,11 @@ public class Test {
         System.out.println("Users count after deletion: " + userManager.userList.size());
         System.out.println("Posts count after deletion: " + postManager.postList.size());
     
-        postManager.sortByCreationTime();
+        postManager.sortByCreationDate();
 
         for (Post post : postManager.postList) {
             System.out.println("Post Title: " + post.getTitle());
             System.out.println("Post Body: " + post.getBody());
-            System.out.println("Creation Time: " + post.getCreationTime());
+            System.out.println("Creation Time: " + post.getCreationDate());
     }
 }
