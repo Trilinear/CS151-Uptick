@@ -51,5 +51,6 @@ public class Test {
             System.out.println("Post Title: " + post.getTitle());
             System.out.println("Post Body: " + post.getBody());
             System.out.println("Creation Time: " + post.getCreationDate());
+        }
     }
 }
