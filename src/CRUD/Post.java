@@ -2,7 +2,7 @@ package CRUD;
 import java.util.Comparator;
 import java.util.Date;
 
-public class Post implements Comparator<Post> {
+public class Post implements Comparable<Post> {
     String title, body;
     Date creationDate, editDate;
     User user;
@@ -47,7 +47,7 @@ public class Post implements Comparator<Post> {
     }
 
     @Override
-    public int compare(Post p1, Post p2){
-        return p1.getCreationDate().compareTo(p2.getCreationDate());
+    public int compareTo(Post p){
+        return this.getCreationDate().compareTo(p.getCreationDate());
     }
 }
