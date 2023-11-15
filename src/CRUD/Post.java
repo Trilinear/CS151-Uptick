@@ -1,10 +1,9 @@
 package CRUD;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-public class Post implements Comparable<Post> {
+public class Post{
     String title, body;
     Date creationDate, editDate;
     User user;
@@ -57,10 +56,5 @@ public class Post implements Comparable<Post> {
     public void editBody(String body, User user) {
         this.body = body;
         this.editDate = new Date();
-    }
-
-    @Override
-    public int compareTo(Post p){
-        return this.getCreationDate().compareTo(p.getCreationDate());
     }
 }

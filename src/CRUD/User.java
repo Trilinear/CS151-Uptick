@@ -1,8 +1,10 @@
 package CRUD;
+import java.util.Date;
 import java.util.List;
 
 public class User {
     String username, password;
+    Date creationDate;
     List<Post> posts;
     List<Comment> comments;
     int karma;
@@ -11,6 +13,7 @@ public class User {
     public User(String username, String password, long userID) {
         this.username = username;
         this.password = password;
+        this.creationDate = new Date();
         this.karma = 0;
     }
 
@@ -22,14 +25,17 @@ public class User {
         return password;
     }
 
-    private List<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
-    private List<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
-    private int getKarma() {
+
+    public Date getCreationDate(){return creationDate;}
+
+    public int getKarma() {
         karma = 0;
         for (int i = 0; i < posts.size(); i++){
             karma += posts.get(i).getKarma();
@@ -38,6 +44,22 @@ public class User {
             karma += comments.get(i).getKarma();
         }
         return karma;
+    }
+
+    public void editUsername(String password, String username) {
+        if (this.password == password) {
+            this.username = username;
+        } else {
+            System.out.println("Wrong password. Edit to username denied.");
+        }
+    }
+
+    public void editPassword(String currentPassword, String newPassword) {
+        if (this.password == currentPassword) {
+            this.password = newPassword;
+        } else {
+            System.out.println("Wrong password. Change to password has been denied.");
+        }
     }
 
     public void upvote(Post post){
@@ -66,21 +88,5 @@ public class User {
         }
         post.getDownvoted().add(this);
         post.karma--;
-    }
-
-    public void editUsername(String password, String username) {
-        if (this.password == password) {
-            this.username = username;
-        } else {
-            System.out.println("Wrong password. Edit to username denied.");
-        }
-    }
-
-    public void editPassword(String currentPassword, String newPassword) {
-        if (this.password == currentPassword) {
-            this.password = newPassword;
-        } else {
-            System.out.println("Wrong password. Change to password has been denied.");
-        }
     }
 }
