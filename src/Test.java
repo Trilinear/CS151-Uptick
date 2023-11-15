@@ -61,15 +61,12 @@ public class Test {
         System.out.println("Users count after deletion: " + userManager.userList.size());
         System.out.println("Posts count after deletion: " + postManager.postList.size());
             
-        user3.downvote(post3);
-        user2.upvote(post3);
-        user3.upvote(post2);
-        user2.upvote(post2);
-        // This is a problem, user1 can still upvote post1 even though its a deleted user
-        user1.upvote(post1);
-        // You can also up/downvote a deleted post, although this isn't as big of a problem since
-        // we aren't really ever accessing the post through our manager
-        user2.downvote(post1);
+        userManager.downvote(user2, post3);
+        userManager.upvote(user3, post3);
+        userManager.upvote(user2, post2);
+        userManager.upvote(user3, post2);
+        userManager.upvote(user1, post2);
+        userManager.downvote(user1, post1);
 
 
 
