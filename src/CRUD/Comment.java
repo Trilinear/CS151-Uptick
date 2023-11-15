@@ -9,23 +9,9 @@ public class Comment extends Post{
         this.parent = parent;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public Post getPost() {
         return parent;
     }
-
-    public String getBody() {
-        return body;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public Date getEditDate() { return editDate; }
 
     public void editText(String newText) {
         this.body = newText;

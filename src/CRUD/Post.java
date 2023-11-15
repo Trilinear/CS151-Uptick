@@ -1,11 +1,14 @@
 package CRUD;
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class Post implements Comparable<Post> {
+public class Post{
     String title, body;
     Date creationDate, editDate;
     User user;
+    int karma;
+    List<User> upvoted, downvoted;
 
     //Create
     public Post(String title, String body, User user) {
@@ -14,6 +17,9 @@ public class Post implements Comparable<Post> {
         this.creationDate = new Date();
         this.editDate = creationDate;
         this.user = user;
+        this.karma = 0;
+        this.upvoted = new ArrayList<>();
+        this.downvoted = new ArrayList<>();
     }
 
     //Read
@@ -35,6 +41,12 @@ public class Post implements Comparable<Post> {
         return user;
     }
 
+    public int getKarma() { return karma; }
+
+    public List<User> getUpvoted() { return upvoted; }
+
+    public List<User> getDownvoted() { return downvoted; }
+
     //Edit
     public void editTitle(String newTitle, User user) {
         this.title = newTitle;
@@ -44,10 +56,5 @@ public class Post implements Comparable<Post> {
     public void editBody(String body, User user) {
         this.body = body;
         this.editDate = new Date();
-    }
-
-    @Override
-    public int compareTo(Post p){
-        return this.getCreationDate().compareTo(p.getCreationDate());
     }
 }
