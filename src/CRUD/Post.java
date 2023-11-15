@@ -8,7 +8,7 @@ public class Post{
     Date creationDate, editDate;
     User user;
     int karma;
-    List<User> upvoted, downvoted;
+    List<User> upvoted, downvoted = new ArrayList<User>();
 
     //Create
     public Post(String title, String body, User user) {
@@ -17,6 +17,7 @@ public class Post{
         this.creationDate = new Date();
         this.editDate = creationDate;
         this.user = user;
+        user.posts.add(this);
         this.karma = 0;
         this.upvoted = new ArrayList<>();
         this.downvoted = new ArrayList<>();
