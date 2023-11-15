@@ -1,12 +1,13 @@
 package CRUD;
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 
 public class User {
     String username, password;
     Date creationDate;
-    List<Post> posts;
-    List<Comment> comments;
+    List<Post> posts = new ArrayList<Post>();
+    List<Comment> comments = new ArrayList<Comment>();
     int karma;
 
 
@@ -33,7 +34,7 @@ public class User {
         return comments;
     }
 
-    public Date getCreationDate(){return creationDate;}
+    public Date getCreationDate() {return creationDate;}
 
     public int getKarma() {
         karma = 0;
