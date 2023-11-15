@@ -5,11 +5,13 @@ public class User {
     String username, password;
     List<Post> posts;
     List<Comment> comments;
+    int karma;
 
 
     public User(String username, String password, long userID) {
         this.username = username;
         this.password = password;
+        this.karma = 0;
     }
 
     public String getUsername() {
@@ -26,6 +28,44 @@ public class User {
 
     private List<Comment> getComments() {
         return comments;
+    }
+    private int getKarma() {
+        karma = 0;
+        for (int i = 0; i < posts.size(); i++){
+            karma += posts.get(i).getKarma();
+        }
+        for (int i = 0; i < comments.size(); i++){
+            karma += comments.get(i).getKarma();
+        }
+        return karma;
+    }
+
+    public void upvote(Post post){
+        if (post.getUpvoted().contains(this)){
+            post.getUpvoted().remove(this);
+            post.karma--;
+            return;
+        }
+        if (post.getDownvoted().contains(this)){
+            post.getDownvoted().remove(this);
+            post.karma++;
+        }
+        post.getUpvoted().add(this);
+        post.karma++;
+    }
+
+    public void downvote(Post post){
+        if (post.getDownvoted().contains(this)){
+            post.getDownvoted().remove(this);
+            post.karma++;
+            return;
+        }
+        if (post.getUpvoted().contains(this)){
+            post.getUpvoted().remove(this);
+            post.karma--;
+        }
+        post.getDownvoted().add(this);
+        post.karma--;
     }
 
     public void editUsername(String password, String username) {
