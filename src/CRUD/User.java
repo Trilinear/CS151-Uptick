@@ -62,32 +62,4 @@ public class User {
             System.out.println("Wrong password. Change to password has been denied.");
         }
     }
-
-    public void upvote(Post post){
-        if (post.getUpvoted().contains(this)){
-            post.getUpvoted().remove(this);
-            post.karma--;
-            return;
-        }
-        if (post.getDownvoted().contains(this)){
-            post.getDownvoted().remove(this);
-            post.karma++;
-        }
-        post.getUpvoted().add(this);
-        post.karma++;
-    }
-
-    public void downvote(Post post){
-        if (post.getDownvoted().contains(this)){
-            post.getDownvoted().remove(this);
-            post.karma++;
-            return;
-        }
-        if (post.getUpvoted().contains(this)){
-            post.getUpvoted().remove(this);
-            post.karma--;
-        }
-        post.getDownvoted().add(this);
-        post.karma--;
-    }
 }
