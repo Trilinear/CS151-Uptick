@@ -46,7 +46,7 @@ public class Test {
         System.out.println("Users count after deletion: " + userManager.userList.size());
         System.out.println("Posts count after deletion: " + postManager.postList.size());
             
-        Collections.sort(postManager.postList);
+        postManager.sortByDate();
 
         for (Post post : postManager.postList) {
             System.out.println("Post Title: " + post.getTitle());
