@@ -11,10 +11,24 @@ public class Post{
     List<User> upvoted, downvoted = new ArrayList<User>();
 
     //Create
+    //With current date
     public Post(String title, String body, User user) {
         this.title = title;
         this.body = body;
         this.creationDate = new Date();
+        this.editDate = creationDate;
+        this.user = user;
+        user.posts.add(this);
+        this.karma = 0;
+        this.upvoted = new ArrayList<>();
+        this.downvoted = new ArrayList<>();
+    }
+
+    //With preset date
+    public Post(String title, String body, User user, int date) {
+        this.title = title;
+        this.body = body;
+        this.creationDate = new Date(date);
         this.editDate = creationDate;
         this.user = user;
         user.posts.add(this);

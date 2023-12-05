@@ -9,6 +9,11 @@ public class Comment extends Post{
         this.parent = parent;
     }
 
+    public Comment(String text, User user, Post parent, int date) {
+        super(null, text, user, date);
+        this.parent = parent;
+    }
+    
     public Post getPost() {
         return parent;
     }

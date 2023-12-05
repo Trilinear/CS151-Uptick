@@ -18,6 +18,13 @@ public class User {
         this.karma = 0;
     }
 
+    public User(String username, String password, long userID, int date) {
+        this.username = username;
+        this.password = password;
+        this.creationDate = new Date(date);
+        this.karma = 0;
+    }
+
     public String getUsername() {
         return username;
     }
