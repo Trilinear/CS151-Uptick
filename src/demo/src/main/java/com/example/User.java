@@ -1,4 +1,4 @@
-package CRUD;
+package com.example;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package CRUD;
+package com.example;
 import java.util.Date;
 
 public class Comment extends Post{
