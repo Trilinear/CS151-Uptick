@@ -26,17 +26,17 @@
         </rowConstraints>
          <children>
             <Button fx:id="OpenUserButton" mnemonicParsing="false" onMouseClicked="#openUserPage" text="Open Users" GridPane.rowIndex="1" />
-            <Button fx:id="CreatePostButton" mnemonicParsing="false" onMouseClicked="#CreatePostPressed" text="Create Post" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="CreatePostButton" mnemonicParsing="false" onMouseClicked="#CreatePostPressed" text="Create Post" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Button fx:id="OpenPostButton" mnemonicParsing="false" onMouseClicked="#OpenPostPressed" text="Open Posts" GridPane.rowIndex="2" />
-            <Button fx:id="DeletePostButton" mnemonicParsing="false" onMouseClicked="#DeletePostPressed" text="Delete Post" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="DeletePostButton" mnemonicParsing="false" onMouseClicked="#DeletePostPressed" text="Delete Post" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Button fx:id="OpenCommentButton" mnemonicParsing="false" onMouseClicked="#OpenCommentPressed" text="Open Comments" GridPane.rowIndex="3" />
-            <Button fx:id="EditPostButton" mnemonicParsing="false" onMouseClicked="#EditPostPressed" text="Edit Post" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="EditPostButton" mnemonicParsing="false" onMouseClicked="#EditPostPressed" text="Edit Post" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" GridPane.columnIndex="2" />
             <Button fx:id="SortDateButton" mnemonicParsing="false" onMouseClicked="#SortDatePressed" text="Sort by Date" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="SortKarmaButton" mnemonicParsing="false" onMouseClicked="#SortKarmaPressed" text="Sort by Karma" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="Refresh" mnemonicParsing="false" onMouseClicked="#showPage" text="Refresh" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="UpvoteButton" mnemonicParsing="false" onMouseClicked="#UpvotePressed" text="Upvote" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button fx:id="DownvoteButton" mnemonicParsing="false" onMouseClicked="#DownvotePressed" text="Downvote" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="SortKarmaButton" mnemonicParsing="false" onMouseClicked="#SortKarmaPressed" text="Sort by Karma" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="Refresh" mnemonicParsing="false" onMouseClicked="#showPage" text="Refresh" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="UpvoteButton" mnemonicParsing="false" onMouseClicked="#UpvotePressed" text="Upvote" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="DownvoteButton" mnemonicParsing="false" onMouseClicked="#DownvotePressed" text="Downvote" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <ListView fx:id="PostListView" layoutX="14.0" layoutY="151.0" prefHeight="200.0" prefWidth="571.0" />

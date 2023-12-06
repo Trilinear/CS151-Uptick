@@ -1,4 +1,4 @@
-package com.example;
+package com.example.CRUD;
 
 import java.util.Comparator;
 
