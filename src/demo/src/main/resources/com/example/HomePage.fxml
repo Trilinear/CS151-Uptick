@@ -25,7 +25,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="OpenUserButton" mnemonicParsing="false" onMouseClicked="#openUserPage" text="Open Users" GridPane.rowIndex="1" />
+            <Button fx:id="OpenUserButton" mnemonicParsing="false" onMouseClicked="#openUserPressed" text="Open Users" GridPane.rowIndex="1" />
             <Button fx:id="CreatePostButton" mnemonicParsing="false" onMouseClicked="#CreatePostPressed" text="Create Post" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Button fx:id="OpenPostButton" mnemonicParsing="false" onMouseClicked="#OpenPostPressed" text="Open Posts" GridPane.rowIndex="2" />
             <Button fx:id="DeletePostButton" mnemonicParsing="false" onMouseClicked="#DeletePostPressed" text="Delete Post" GridPane.columnIndex="4" GridPane.rowIndex="2" />

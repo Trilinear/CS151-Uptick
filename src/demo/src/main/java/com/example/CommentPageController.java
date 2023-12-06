@@ -2,21 +2,19 @@ package com.example;
 
 import com.example.CRUD.*;
 import javafx.fxml.FXML;
-
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.TextAlignment;
-import javafx.stage.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePageController {
+public class CommentPageController {
 
     @FXML
     private Button CreatePostButton;
@@ -99,6 +97,7 @@ public class HomePageController {
         commentManager.addObject(comment2);
         commentManager.addObject(comment3);
     }
+
     @FXML
     void CreatePostPressed() {
         Post newPost = new Post("new post", "new body", currentUser);
@@ -204,7 +203,9 @@ public class HomePageController {
         showPage();
 
     }
+
     private ListView<Post> currentPosts = new ListView<Post>();
+
     @FXML
     private void showPage() {
         if (isStarted == false) {
@@ -222,8 +223,8 @@ public class HomePageController {
         }
 
         for (Post post : postManager.postList) {
-                PostListView.getItems().add("Title: " + post.getTitle() + " Body: " + post.getBody() +
-                        " Karma: " + post.getKarma());
+            PostListView.getItems().add("Title: " + post.getTitle() + " Body: " + post.getBody() +
+                    " Karma: " + post.getKarma());
         }
 
         for (Post post : postManager.postList) {
@@ -231,7 +232,7 @@ public class HomePageController {
                 currentPosts.getItems().add(post);
             }
         }
+
+
     }
-
-
 }
