@@ -7,3 +7,5 @@ For our testing, we are adding preset cases within test.java alongside allowing 
 In Phase 2 of our project, updates were made to our .java files to implement karma functionality in our users, posts, and comments classes as well as functionality for sorting in the classes aforementioned. Methods for upvote/downvote can be found in the UserManager class.
 
 Our test.java file was updated accordingly and testing was implemented for Phase 2.
+
+In Phase 3 of our project, JavaFX was integrated to our project to visually represent users, posts, and comments. A scene is made to show a list of users that can be sorted by creation date or karma. There are also buttons to switch to other views to list all posts or comments. The list of posts and comments can also be sorted by dates or karma.
