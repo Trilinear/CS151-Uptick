@@ -1,9 +1,4 @@
-import java.util.Collections;
-import java.util.Scanner;
 import CRUD.*;
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,12 +25,23 @@ public class Testing {
     PostManager commentManager = new PostManager();
     UserManager userManager = new UserManager();
 
-    @Test
-    public void addUserList() {
+    public void initiateList() {
         userManager.addObject(user1);
         userManager.addObject(user2);
         userManager.addObject(user3);
 
+        postManager.addObject(post1);
+        postManager.addObject(post2);
+        postManager.addObject(post3);
+
+        commentManager.addObject(comment1);
+        commentManager.addObject(comment2);
+        commentManager.addObject(comment3);
+    }
+
+    @Test
+    public void addUserList() {
+        initiateList();
         assertEquals(user1, userManager.userList.get(0));
         assertEquals(user2, userManager.userList.get(1));
         assertEquals(user3, userManager.userList.get(2));
@@ -44,10 +50,7 @@ public class Testing {
 
     @Test
     public void addPostList() {
-        postManager.addObject(post1);
-        postManager.addObject(post2);
-        postManager.addObject(post3);
-
+        initiateList();
         assertEquals(post1, postManager.postList.get(0));
         assertEquals(post2, postManager.postList.get(1));
         assertEquals(post3, postManager.postList.get(2));
@@ -55,9 +58,7 @@ public class Testing {
 
     @Test
     public void addCommentList() {
-        commentManager.addObject(comment1);
-        commentManager.addObject(comment2);
-        commentManager.addObject(comment3);
+        initiateList();
         assertEquals(comment1, commentManager.postList.get(0));
         assertEquals(comment2, commentManager.postList.get(1));
         assertEquals(comment3, commentManager.postList.get(2));
@@ -65,9 +66,7 @@ public class Testing {
 
     @Test
     public void editLists() {
-        postManager.addObject(post1);
-        commentManager.addObject(comment1);
-
+        initiateList();
         post1.editTitle("New Title", user1);
         comment1.editText("New Comment 1");
 
@@ -83,18 +82,7 @@ public class Testing {
 
     @Test
     public void deleteTesting() {
-        userManager.addObject(user1);
-        userManager.addObject(user2);
-        userManager.addObject(user3);
-
-        postManager.addObject(post1);
-        postManager.addObject(post2);
-        postManager.addObject(post3);
-
-        commentManager.addObject(comment1);
-        commentManager.addObject(comment2);
-        commentManager.addObject(comment3);
-
+        initiateList();
         userManager.deleteObject(user1);
         postManager.deleteObject(post1);
         commentManager.deleteObject(comment3);
@@ -118,17 +106,7 @@ public class Testing {
 
     @Test
     public void upvoteTesting() {
-        userManager.addObject(user1);
-        userManager.addObject(user2);
-        userManager.addObject(user3);
-
-        postManager.addObject(post1);
-        postManager.addObject(post2);
-        postManager.addObject(post3);
-
-        commentManager.addObject(comment1);
-        commentManager.addObject(comment2);
-        commentManager.addObject(comment3);
+        initiateList();
 
         userManager.downvote(user2, post3);
         userManager.upvote(user3, post3);
@@ -156,19 +134,8 @@ public class Testing {
 
     @Test
     public void sortByDateTest() {
-        userManager.addObject(user1);
-        userManager.addObject(user2);
-        userManager.addObject(user3);
-
-        postManager.addObject(post1);
-        postManager.addObject(post2);
-        postManager.addObject(post3);
-
-        commentManager.addObject(comment1);
-        commentManager.addObject(comment2);
-        commentManager.addObject(comment3);
-
-
+        initiateList();
+        //Upvotes and Downvotes added
         userManager.downvote(user2, post3);
         userManager.upvote(user3, post3);
         userManager.upvote(user2, post2);
@@ -177,11 +144,11 @@ public class Testing {
         userManager.downvote(user1, post1);
         userManager.downvote(user2, comment2);
         userManager.upvote(user3, comment1);
-
+        //Sorts by karma to make sure it does not print in the same order as the initialization
         userManager.sortByKarma();
         postManager.sortByKarma();
         commentManager.sortByKarma();
-
+        //Sort by Date
         userManager.sortByDate();
         postManager.sortByDate();
         commentManager.sortByDate();
@@ -201,18 +168,7 @@ public class Testing {
 
     @Test
     public void sortByKarmaTest() {
-        userManager.addObject(user1);
-        userManager.addObject(user2);
-        userManager.addObject(user3);
-
-        postManager.addObject(post1);
-        postManager.addObject(post2);
-        postManager.addObject(post3);
-
-        commentManager.addObject(comment1);
-        commentManager.addObject(comment2);
-        commentManager.addObject(comment3);
-
+        initiateList();
 
         userManager.downvote(user2, post3);
         userManager.upvote(user3, post3);
