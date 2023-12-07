@@ -17,6 +17,9 @@ import javafx.stage.Stage;
 public class UserPageController {
 
     @FXML
+    private Pane UserPagePane;
+
+    @FXML
     private Button CreateUserButton;
 
     @FXML
@@ -98,29 +101,29 @@ public class UserPageController {
         commentManager.addObject(comment3);
     }
     @FXML
-    void CreatePostPressed() {
-        Post newPost = new Post("new post", "new body", currentUser);
-        postManager.addObject(newPost);
-        System.out.println("new post created");
+    void CreateUserPressed() {
+        User newUser = new User("new user", "new password", 4);
+        userManager.addObject(newUser);
+        System.out.println("new user created");
         showPage();
     }
 
     @FXML
-    void DeletePostPressed(MouseEvent event) {
+    void DeleteUserPressed(MouseEvent event) {
         String selectedPost = UserListView.getSelectionModel().getSelectedItem();
         int index = UserListView.getItems().indexOf(selectedPost);
-        postManager.postList.remove(index);
+        userManager.userList.remove(index);
         UserListView.getItems().remove(index);
-        currentPosts.getItems().remove(index);
+        currentUsers.getItems().remove(index);
         showPage();
     }
 
     @FXML
-    void EditPostPressed() throws IOException {
+    void EditUserPressed() throws IOException {
         String selectedPost = UserListView.getSelectionModel().getSelectedItem();
         int index = UserListView.getItems().indexOf(selectedPost);
         System.out.println(index);
-        if (postManager.postList.get(index).getUser() != currentUser) {
+        if (!userManager.userList.get(index).getUsername().equals(currentUser.getUsername())) {
             Pane pane = new Pane();
             Text text = new Text("Not allowed, you are not the correct user");
             text.setTranslateX(100);
@@ -134,8 +137,8 @@ public class UserPageController {
             stage.setScene(scene);
             stage.show();
         } else {
-            postManager.postList.get(index).editTitle("new " + postManager.postList.get(index).getTitle(), currentUser);
-            postManager.postList.get(index).editBody("new " + postManager.postList.get(index).getBody(), currentUser);
+            userManager.userList.get(index).editUsername(userManager.userList.get(index).getPassword(),"new " +
+                    userManager.userList.get(index).getUsername());
         }
         showPage();
     }
@@ -163,24 +166,26 @@ public class UserPageController {
     }
 
     @FXML
-    void OpenPostPressed() {
-
+    void OpenPostPressed() throws IOException {
+        App.setRoot("HomeView");
+        isStarted = false;
     }
 
     @FXML
-    void OpenCommentPressed() {
-
+    void OpenCommentPressed() throws IOException {
+        App.setRoot("CommentPage");
+        isStarted = false;
     }
 
     @FXML
     void SortDatePressed() {
-        postManager.sortByDate();
+        userManager.sortByDate();
         showPage();
     }
 
     @FXML
     void SortKarmaPressed() {
-        postManager.sortByKarma();
+        userManager.sortByKarma();
         showPage();
     }
 
@@ -202,7 +207,7 @@ public class UserPageController {
         showPage();
 
     }
-    private ListView<Post> currentPosts = new ListView<Post>();
+    private ListView<User> currentUsers = new ListView<User>();
     @FXML
     private void showPage() {
         if (isStarted == false) {
@@ -210,23 +215,22 @@ public class UserPageController {
             isStarted = true;
         }
 
-        for (Post post : postManager.postList) {
-            System.out.println(post.getTitle());
+        for (User user : userManager.userList) {
+            System.out.println(user.getUsername());
         }
         if (!UserListView.getItems().isEmpty()) {
-            for (Post post : currentPosts.getItems()) {
+            for (User user : currentUsers.getItems()) {
                 UserListView.getItems().remove(0);
             }
         }
 
-        for (Post post : postManager.postList) {
-            UserListView.getItems().add("Title: " + post.getTitle() + " Body: " + post.getBody() +
-                    " Karma: " + post.getKarma());
+        for (User user : userManager.userList) {
+            UserListView.getItems().add("Username: " + user.getUsername() + " Karma: " + user.getKarma());
         }
 
-        for (Post post : postManager.postList) {
-            if (!currentPosts.getItems().contains(post)) {
-                currentPosts.getItems().add(post);
+        for (User user : userManager.userList) {
+            if (!currentUsers.getItems().contains(user)) {
+                currentUsers.getItems().add(user);
             }
         }
     }

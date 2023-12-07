@@ -50,7 +50,7 @@ public class CommentPageController {
     private Button DownvoteButton;
 
     @FXML
-    private ListView<String> PostListView;
+    private ListView<String> CommentListView;
 
     @FXML
     private TextField bodyTextField;
@@ -100,26 +100,26 @@ public class CommentPageController {
 
     @FXML
     void CreatePostPressed() {
-        Post newPost = new Post("new post", "new body", currentUser);
-        postManager.addObject(newPost);
+        Comment newPost = new Comment("new body", currentUser, post1);
+        commentManager.addObject(newPost);
         System.out.println("new post created");
         showPage();
     }
 
     @FXML
     void DeletePostPressed(MouseEvent event) {
-        String selectedPost = PostListView.getSelectionModel().getSelectedItem();
-        int index = PostListView.getItems().indexOf(selectedPost);
+        String selectedPost = CommentListView.getSelectionModel().getSelectedItem();
+        int index = CommentListView.getItems().indexOf(selectedPost);
         postManager.postList.remove(index);
-        PostListView.getItems().remove(index);
+        CommentListView.getItems().remove(index);
         currentPosts.getItems().remove(index);
         showPage();
     }
 
     @FXML
     void EditPostPressed() throws IOException {
-        String selectedPost = PostListView.getSelectionModel().getSelectedItem();
-        int index = PostListView.getItems().indexOf(selectedPost);
+        String selectedPost = CommentListView.getSelectionModel().getSelectedItem();
+        int index = CommentListView.getItems().indexOf(selectedPost);
         System.out.println(index);
         if (postManager.postList.get(index).getUser() != currentUser) {
             Pane pane = new Pane();
@@ -175,29 +175,29 @@ public class CommentPageController {
 
     @FXML
     void SortDatePressed() {
-        postManager.sortByDate();
+        commentManager.sortByDate();
         showPage();
     }
 
     @FXML
     void SortKarmaPressed() {
-        postManager.sortByKarma();
+        commentManager.sortByKarma();
         showPage();
     }
 
     @FXML
     void UpvotePressed() {
-        String selectedPost = PostListView.getSelectionModel().getSelectedItem();
-        int index = PostListView.getItems().indexOf(selectedPost);
+        String selectedPost = CommentListView.getSelectionModel().getSelectedItem();
+        int index = CommentListView.getItems().indexOf(selectedPost);
 
-        userManager.upvote(currentUser, postManager.postList.get(index));
+        userManager.upvote(currentUser, commentManager.postList.get(index));
         showPage();
     }
 
     @FXML
     void DownvotePressed() {
-        String selectedPost = PostListView.getSelectionModel().getSelectedItem();
-        int index = PostListView.getItems().indexOf(selectedPost);
+        String selectedPost = CommentListView.getSelectionModel().getSelectedItem();
+        int index = CommentListView.getItems().indexOf(selectedPost);
 
         userManager.downvote(currentUser, postManager.postList.get(index));
         showPage();
@@ -213,23 +213,23 @@ public class CommentPageController {
             isStarted = true;
         }
 
-        for (Post post : postManager.postList) {
-            System.out.println(post.getTitle());
+        for (Post comment : commentManager.postList) {
+            System.out.println(comment.getTitle());
         }
-        if (!PostListView.getItems().isEmpty()) {
-            for (Post post : currentPosts.getItems()) {
-                PostListView.getItems().remove(0);
+        if (!CommentListView.getItems().isEmpty()) {
+            for (Post comment : currentPosts.getItems()) {
+                CommentListView.getItems().remove(0);
             }
         }
 
-        for (Post post : postManager.postList) {
-            PostListView.getItems().add("Title: " + post.getTitle() + " Body: " + post.getBody() +
-                    " Karma: " + post.getKarma());
+        for (Post comment : commentManager.postList) {
+            CommentListView.getItems().add("Title: " + comment.getTitle() + " Body: " + comment.getBody() +
+                    " Karma: " + comment.getKarma());
         }
 
-        for (Post post : postManager.postList) {
-            if (!currentPosts.getItems().contains(post)) {
-                currentPosts.getItems().add(post);
+        for (Post comment : commentManager.postList) {
+            if (!currentPosts.getItems().contains(comment)) {
+                currentPosts.getItems().add(comment);
             }
         }
 

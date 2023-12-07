@@ -3,7 +3,6 @@ package com.example;
 import com.example.CRUD.*;
 import javafx.fxml.FXML;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -160,8 +159,9 @@ public class HomePageController {
     }
 
     @FXML
-    void openUserPressed() {
-
+    void openUserPressed() throws IOException {
+        App.setRoot("UserPage");
+        isStarted = false;
     }
 
     @FXML
@@ -170,8 +170,9 @@ public class HomePageController {
     }
 
     @FXML
-    void OpenCommentPressed() {
-
+    void OpenCommentPressed() throws IOException {
+        App.setRoot("CommentPage");
+        isStarted = false;
     }
 
     @FXML
